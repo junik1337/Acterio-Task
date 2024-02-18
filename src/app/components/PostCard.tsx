@@ -11,7 +11,7 @@ interface props {
 const PostCard = ({ data, setter }: props) => {
 	const [Reactions, setReactions] = useState<number>(data.reactions);
 
-	const deletePost = async (postId: number) => {
+	const deletePost = async () => {
 		try {
 			setter(data);
 		} catch (error) {
@@ -73,7 +73,7 @@ const PostCard = ({ data, setter }: props) => {
 						{Reactions}
 					</span>
 				</button>
-				<button className="buttohover" onClick={() => deletePost(data.userId)}>
+				<button className="buttohover" onClick={deletePost}>
 					<span className="text text-[12px]">Delete</span>
 					<span className="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

@@ -1,31 +1,29 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useParams } from 'next/navigation';
 import { Post } from '../../../../const';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import useSWR from 'swr';
 
+const fetchPost = async (url: string) => {
+	const response = await axios.get(url);
+	return response.data;
+};
 
 const RenderPost = () => {
 	const { id } = useParams();
-	const [post, setPost] = useState<Post | null>(null);
+
+	const { data: post, error } = useSWR<Post>(id ? `https://dummyjson.com/posts/${id}` : null, fetchPost);
 
 	useEffect(() => {
-		if (id) {
-			const fetchPost = async () => {
-				try {
-					const response = await axios.get(`https://dummyjson.com/posts/${id}`);
-					setPost(response.data);
-				} catch (error) {
-					console.error('Error fetching post:', error);
-				}
-			};
-
-			fetchPost();
+		if (error) {
+			window.location.href = '/not-found';
 		}
-	}, [id]);
+	}, [error, id]);
+
 
 	if (!post) {
 		return (
