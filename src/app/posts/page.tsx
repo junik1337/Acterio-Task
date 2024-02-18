@@ -1,9 +1,7 @@
 "use client";
 import useSWR from "swr";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import { Data, Post } from '../../../const';
 import { Grid } from '@mui/material';
 import { useEffect, useState } from "react";

@@ -1,9 +1,7 @@
-import { Chip, Paper, CardContent, Typography, CardActionArea } from '@mui/material';
+import { Chip } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { Post } from '../../../const';
-import { Fragment, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 interface props {
 	data: Post;
@@ -89,29 +87,3 @@ const PostCard = ({ data, setter }: props) => {
 };
 
 export default PostCard;
-
-{/* <Paper elevation={12} sx={{ background: '#222831', color: '#F8F3D4' }}>
-				<CardActionArea
-					color="secondary"
-					sx={{ minWidth: 250, maxWidth: 600, height: 250, display: 'flex', justifyContent: 'space-aoround', width: '100%', flexDirection: "column" }}
-					onClick={() => {
-						window.location.href = `/posts/${data.id}`;
-					}}
-				>
-					<CardContent>
-						<Typography gutterBottom color="info" fontFamily="Title" variant="h5" component="div">
-							{data.title}
-						</Typography>
-						<Typography gutterBottom fontFamily="Body" className="text_responsive" fontSize={18} variant="body2" color="secondary">
-							{data.body.substring(0, 100)}...
-						</Typography>
-						<Stack marginBlockStart={2} direction="row" spacing={1}>
-							{data.tags.map((tag: string, key: number) => {
-								return (
-									<Chip color="primary" key={key} label={`${tag[0].toUpperCase() + tag.slice(1)}`} />
-								);
-							})}
-						</Stack>
-					</CardContent>
-				</CardActionArea>
-			</Paper> */}

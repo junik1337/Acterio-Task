@@ -5,10 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { useEffect, useState } from 'react';
-import { Data, Post } from '../../../const';
-import { Button, Chip, Stack } from '@mui/material';
-import { mutate } from 'swr';
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',

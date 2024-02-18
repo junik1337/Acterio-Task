@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Typography, createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { useParams } from 'next/navigation';
 import { Post } from '../../../../const';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
