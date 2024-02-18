@@ -41,7 +41,9 @@ const PostCard = ({ data, setter }: props) => {
 				</div>
 				<div className="date-box">
 					<span className="month">userID</span>
-					<span className="date">{data.userId}</span>
+					<span className="date">
+						{data.userId.toString().length > 3 ? `${data.userId.toString().substring(0, 3)}..` : data.userId}
+					</span>
 				</div>
 				<Stack marginBlockStart={1} marginBlockEnd={1} justifyContent="center" alignItems="center" direction="row" spacing={1}>
 					{data.tags.map((tag: string, key: number) => {
